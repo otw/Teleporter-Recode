@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+	<ListView  
+		android:id="@android:id/list"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:drawSelectorOnTop="true"
+		android:divider="#000000"
+		android:dividerHeight="2dip"
+		android:listSelector="@drawable/selector" />
+		
+	<include layout="@layout/slider_scorefactors"/>
+</FrameLayout>
