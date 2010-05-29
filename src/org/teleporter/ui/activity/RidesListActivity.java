@@ -43,6 +43,7 @@ public class RidesListActivity extends ListActivity implements Constants {
 	private final BroadcastReceiver mTimeTickReceiver = new BroadcastReceiver() {
 		@Override
 		public void onReceive(final Context pContext, final Intent pIntent) {
+			RidesListActivity.this.mQueryMultiplexer.removeOutdated();
 			RidesListActivity.this.mQueryMultiplexer.sort();
 			RidesListActivity.this.getListView().invalidateViews();
 		}

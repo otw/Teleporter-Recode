@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.teleporter.adt.BaseRide;
 import org.teleporter.adt.Place;
+import org.teleporter.adt.TimedRide;
 import org.teleporter.plugin.ITeleporterPlugin;
 import org.teleporter.plugin.TeleporterPlugin;
 import org.teleporter.plugin.constants.PluginConstants;
@@ -105,6 +106,20 @@ public class QueryMultiplexer implements Constants, PluginConstants, TimeConstan
 	// ===========================================================
 	// Methods
 	// ===========================================================
+
+	public void removeOutdated() {
+		final long now = System.currentTimeMillis();
+		
+		final ArrayList<BaseRide> rides = this.mRides;
+		for(int i = rides.size() - 1; i >= 0; i--) {
+			final BaseRide ride = rides.get(i);
+			if(ride instanceof TimedRide) {
+				if(now > ride.getDeparture().getTimeInMillis()) {
+					rides.remove(i);
+				}
+			}
+		}
+	}
 
 	public void sort() {
 		Collections.sort(this.mRides, this.mRideComparator);
