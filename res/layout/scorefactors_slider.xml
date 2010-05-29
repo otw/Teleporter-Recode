@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SlidingDrawer  xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/slider_scorefactors"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:orientation="horizontal"
+	android:handle="@+id/slider_scorefactors_handle"
+	android:content="@+id/slider_scorefactors_pane">
+	<ImageView
+        android:id="@id/slider_scorefactors_handle" 
+		android:layout_width="75dip"
+       	android:layout_height="142dip"
+       	android:layout_gravity="bottom"
+       	android:src="@drawable/scorefactor_slider_left" />
+   	<LinearLayout android:id="@id/slider_scorefactors_pane"
+	    android:orientation="vertical"
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    android:background="#CC000000" >
+	    
+	    <TextView
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+	    	android:layout_gravity="center"
+		    android:text="@string/scorefactor_fun"
+		    android:textStyle="bold"
+		    android:textSize="23dip" />  
+	    <SeekBar android:id="@+id/seekbar_scorefactor_fun"
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:thumb="@drawable/scorefactor_fun"
+	    	android:paddingLeft="20dip"
+	    	android:paddingRight="20dip"
+	    	android:paddingBottom="20dip"
+	    	android:paddingTop="0dip"
+			android:progress="0"
+		    android:max="5"
+		    android:tag="scorefactor_fun" />
+	    
+	    <TextView
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+	    	android:layout_gravity="center"
+		    android:text="@string/scorefactor_money"
+		    android:textStyle="bold"
+		    android:textSize="23dip" />  
+	    <SeekBar android:id="@+id/seekbar_scorefactor_money"
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:thumb="@drawable/scorefactor_money"
+	    	android:paddingLeft="20dip"
+	    	android:paddingRight="20dip"
+	    	android:paddingBottom="20dip"
+	    	android:paddingTop="0dip"
+			android:progress="0"
+		    android:max="5"
+		    android:tag="scorefactor_money" />
+		    
+	    <TextView
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+	    	android:layout_gravity="center"
+		    android:text="@string/scorefactor_speed"
+		    android:textStyle="bold"
+		    android:textSize="23dip" />  
+	    <SeekBar android:id="@+id/seekbar_scorefactor_speed"
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:thumb="@drawable/scorefactor_speed"
+	    	android:paddingLeft="20dip"
+	    	android:paddingRight="20dip"
+	    	android:paddingBottom="20dip"
+	    	android:paddingTop="0dip"
+			android:progress="0"
+		    android:max="5"
+		    android:tag="scorefactor_speed" />
+		    
+	    <TextView
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+	    	android:layout_gravity="center"
+		    android:text="@string/scorefactor_ecology"
+		    android:textStyle="bold"
+		    android:textSize="23dip" />  
+	    <SeekBar android:id="@+id/seekbar_scorefactor_ecology"
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:thumb="@drawable/scorefactor_ecology"
+	    	android:paddingLeft="20dip"
+	    	android:paddingRight="20dip"
+	    	android:paddingBottom="20dip"
+	    	android:paddingTop="0dip"
+			android:progress="0"
+		    android:max="5"
+		    android:tag="green" />
+		    
+	    <TextView
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+	    	android:layout_gravity="center"
+		    android:text="@string/scorefactor_social"
+		    android:textStyle="bold"
+		    android:textSize="23dip" />  
+	    <SeekBar android:id="@+id/seekbar_scorefactor_social"
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:thumb="@drawable/scorefactor_social"
+	    	android:paddingLeft="20dip"
+	    	android:paddingRight="20dip"
+	    	android:paddingBottom="20dip"
+	    	android:paddingTop="0dip"
+			android:progress="0"
+		    android:max="5"
+		    android:tag="scorefactor_social" />
+	</LinearLayout>
+</SlidingDrawer>

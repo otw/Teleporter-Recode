@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project basedir="." default="createjars" name="TeleporterPluginConstants">
+
+	<taskdef resource="net/sf/antcontrib/antcontrib.properties"/>
+	
+	<property environment="env" />
+	<property name="ECLIPSE_HOME" value="E:/eclipse/galileo-android" />
+	<property name="debuglevel" value="source,lines,vars" />
+	<property name="target" value="1.6" />
+	<property name="source" value="1.6" />
+	<property name="bin" value="bin" />
+	<property name="src" value="src" />
+	
+	<property name="binfile" value="bin/libteleporterpluginconstants.jar" />
+	
+	<property name="targetlist" value="../TeleporterBasePlugin/lib/libteleporterpluginconstants.jar" />
+   
+	<target name="createjar" >
+		<echo>${targetfile}</echo>
+        
+		<copy file="${binfile}" tofile="${targetfile}"/>
+		
+		<eclipse.refreshLocal resource="${targetfile}" depth="infinite"/>
+    </target>
+    
+   	<target name="createjars">
+		<jar destfile="${binfile}">
+			<zipfileset dir="${src}">
+				<include name="**/PluginConstants.java" />
+				<include name="**/TimeConstants.java" />
+				<include name="**/RideType.java" />
+			</zipfileset>
+			<zipfileset dir="${bin}">
+				<include name="**/PluginConstants.class" />
+				<include name="**/TimeConstants.class" />
+				<include name="**/RideType.class" />
+			</zipfileset>
+		</jar>
+		
+		<foreach list="${targetlist}" target="createjar" param="targetfile" delimiter="," trim="true" />
+   	</target>
+</project>
