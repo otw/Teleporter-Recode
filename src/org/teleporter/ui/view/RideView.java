@@ -25,7 +25,7 @@ public class RideView extends RelativeLayout implements TimeConstants {
 	// Constants
 	// ===========================================================
 
-	private static final SimpleDateFormat DATEFORMAT_hhmm = new SimpleDateFormat(HH:mm");
+	private static final SimpleDateFormat DATEFORMAT_hhmm = new SimpleDateFormat("HH:mm");
 	private static final DecimalFormat DECIMALFORMAT_PRICE = new DecimalFormat("#,##0.00");
 
 	// ===========================================================
