@@ -1,5 +1,6 @@
 package org.teleporter.ui.view;
 
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -24,7 +25,8 @@ public class RideView extends RelativeLayout implements TimeConstants {
 	// Constants
 	// ===========================================================
 
-	private final SimpleDateFormat DATEFORMAT_hhmm = new SimpleDateFormat("hh:mm");
+	private static final SimpleDateFormat DATEFORMAT_hhmm = new SimpleDateFormat(HH:mm");
+	private static final DecimalFormat DECIMALFORMAT_PRICE = new DecimalFormat("#,##0.00");
 
 	// ===========================================================
 	// Fields
@@ -81,19 +83,19 @@ public class RideView extends RelativeLayout implements TimeConstants {
 		if(pBaseRide instanceof DurationRide) {
 			waitingTimeInMinutes = ((DurationRide) pBaseRide).getOffsetSeconds() / SECONDSPERMINUTE;
 			travelTimeInMinutes = pBaseRide.getDurationSeconds() / SECONDSPERMINUTE;
-			
+
 			final GregorianCalendar calculatedDeparture = new GregorianCalendar();
 			calculatedDeparture.add(Calendar.MINUTE, waitingTimeInMinutes);
-			this.mTvDeparture.setText(this.DATEFORMAT_hhmm.format(calculatedDeparture.getTime()));
-			
+			this.mTvDeparture.setText(RideView.DATEFORMAT_hhmm.format(calculatedDeparture.getTime()));
+
 			final GregorianCalendar calculatedArrival = new GregorianCalendar();
 			calculatedArrival.setTimeInMillis(System.currentTimeMillis() + pBaseRide.getDurationSeconds() * MILLISECONDSPERSECOND + waitingTimeInMinutes * SECONDSPERMINUTE * MILLISECONDSPERSECOND);
-			this.mTvArrival.setText(this.DATEFORMAT_hhmm.format(calculatedArrival.getTime()));
+			this.mTvArrival.setText(RideView.DATEFORMAT_hhmm.format(calculatedArrival.getTime()));
 		} else if(pBaseRide instanceof TimedRide) {
 			waitingTimeInMinutes = (int) (pBaseRide.getDeparture().getTimeInMillis() - System.currentTimeMillis()) / (SECONDSPERMINUTE * MILLISECONDSPERSECOND);
 			travelTimeInMinutes = (int) (pBaseRide.getArrival().getTimeInMillis() - pBaseRide.getDeparture().getTimeInMillis()) / (SECONDSPERMINUTE * MILLISECONDSPERSECOND);
-			this.mTvDeparture.setText(this.DATEFORMAT_hhmm.format(pBaseRide.getDeparture().getTime()));
-			this.mTvArrival.setText(this.DATEFORMAT_hhmm.format(pBaseRide.getArrival().getTime()));
+			this.mTvDeparture.setText(RideView.DATEFORMAT_hhmm.format(pBaseRide.getDeparture().getTime()));
+			this.mTvArrival.setText(RideView.DATEFORMAT_hhmm.format(pBaseRide.getArrival().getTime()));
 		} else {
 			throw new IllegalArgumentException("Unexpected class: " + pBaseRide.getClass().getSimpleName());
 		}
@@ -126,13 +128,7 @@ public class RideView extends RelativeLayout implements TimeConstants {
 		}
 
 		final int priceInCents = pBaseRide.getPriceInCents();
-		{
-			this.mTvPrice.setText(String.valueOf(priceInCents / 100));
-			final int cents = priceInCents % 100;
-			if(cents != 0) {
-				this.mTvPrice.append("," + cents);
-			}
-		}
+		this.mTvPrice.setText(DECIMALFORMAT_PRICE.format(priceInCents));
 
 		this.setBackgroundResource(pBaseRide.getRideType().BACKGROUND_RESID);
 	}
