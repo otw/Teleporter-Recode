@@ -36,6 +36,17 @@ public enum IntentType {
 	// Methods
 	// ===========================================================
 
+	public static IntentType fromString(String pName) {
+		final IntentType[] intentTypes = IntentType.values();
+		for(final IntentType r : intentTypes) {
+			if(r.name().equals(pName)) {
+				return r;
+			}
+		}
+
+		return IntentType.STARTACTIVITY;
+	}
+
 	// ===========================================================
 	// Inner and Anonymous Classes
 	// ===========================================================

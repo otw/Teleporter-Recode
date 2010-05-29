@@ -1,6 +1,7 @@
 package org.teleporter.plugin.constants;
 
 
+
 /**
  * @author Nicolas Gramlich
  * @since 16:51:47 - 27.05.2010
@@ -25,10 +26,14 @@ public interface PluginConstants {
 	public static final String ACTION_SEARCH_REQUEST_EXTRA_DESTINATION_LATITUDE = ACTION_SEARCH_REQUEST + ".extra.destination.latitude";
 	public static final String ACTION_SEARCH_REQUEST_EXTRA_DESTINATION_LONGITUDE = ACTION_SEARCH_REQUEST + ".extra.destination.longitude";
 
+	public static final String ACTION_SEARCH_RESPONSE_EXTRA_TYPE = ACTION_SEARCH_RESPONSE + "extra.type";
+	public static final String ACTION_SEARCH_RESPONSE_EXTRA_TYPE_VALUE_TIMEDRIDE = "TimedRide";
+	public static final String ACTION_SEARCH_RESPONSE_EXTRA_TYPE_VALUE_DURATIONDRIDE = "DurationRide";
 
 	public static final String ACTION_SEARCH_RESPONSE_EXTRA_PRICE = ACTION_SEARCH_RESPONSE + ".extra.price";
-	public static final String ACTION_SEARCH_RESPONSE_EXTRA_INTENT = ACTION_SEARCH_RESPONSE + ".extra.intent";
 	public static final String ACTION_SEARCH_RESPONSE_EXTRA_RIDETYPE = ACTION_SEARCH_RESPONSE + ".extra.ridetype";
+	public static final String ACTION_SEARCH_RESPONSE_EXTRA_INTENT = ACTION_SEARCH_RESPONSE + ".extra.intent";
+	public static final String ACTION_SEARCH_RESPONSE_EXTRA_INTENTTYPE = ACTION_SEARCH_RESPONSE + ".extra.intenttype";
 	
 	public static final String ACTION_SEARCH_RESPONSE_EXTRA_RIDESCORE_FUN = ACTION_SEARCH_RESPONSE + ".extra.ridescore.fun";
 	public static final String ACTION_SEARCH_RESPONSE_EXTRA_RIDESCORE_MONEY = ACTION_SEARCH_RESPONSE + ".extra.ridescore.money";

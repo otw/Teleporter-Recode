@@ -29,11 +29,15 @@
 				<include name="**/PluginConstants.java" />
 				<include name="**/TimeConstants.java" />
 				<include name="**/RideType.java" />
+				<include name="**/IntentType.java" />
+				<include name="**/RideScore.java" />
 			</zipfileset>
 			<zipfileset dir="${bin}">
 				<include name="**/PluginConstants.class" />
 				<include name="**/TimeConstants.class" />
 				<include name="**/RideType.class" />
+				<include name="**/IntentType.class" />
+				<include name="**/RideScore.class" />
 			</zipfileset>
 		</jar>
 		

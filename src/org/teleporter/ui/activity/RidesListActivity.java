@@ -1,10 +1,10 @@
 package org.teleporter.ui.activity;
 
-import org.teleporter.QueryMultiplexer;
 import org.teleporter.R;
 import org.teleporter.adt.BaseRide;
 import org.teleporter.adt.Place;
 import org.teleporter.ui.view.RideView;
+import org.teleporter.util.QueryMultiplexer;
 import org.teleporter.util.constants.Constants;
 
 import android.app.ListActivity;
@@ -114,6 +114,8 @@ public class RidesListActivity extends ListActivity implements Constants {
 	@Override
 	protected void onResume() {
 		super.onResume();
+		
+		this.mQueryMultiplexer.onResume();
 
 		this.registerReceiver(this.mTimeTickReceiver, new IntentFilter(Intent.ACTION_TIME_TICK));
 	}
@@ -122,13 +124,9 @@ public class RidesListActivity extends ListActivity implements Constants {
 	protected void onPause() {
 		super.onPause();
 
-		this.unregisterReceiver(this.mTimeTickReceiver);
-	}
+		this.mQueryMultiplexer.onPause();
 
-	@Override
-	protected void onDestroy() {
-		this.mQueryMultiplexer.onDestroy();
-		super.onDestroy();
+		this.unregisterReceiver(this.mTimeTickReceiver);
 	}
 
 	// ===========================================================
